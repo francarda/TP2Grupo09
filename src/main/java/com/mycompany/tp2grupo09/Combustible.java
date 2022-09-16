@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.tp2grupo09;
+package practico2;
 
 /**
  *
- * @author maxim
+ * @author ALBERTO
  */
 public class Combustible {
-    private String tipo;
-    private double precio;
+    
+    private final String tipo;
+    private final double precio;
 
     public Combustible(String tipo, double precio) {
         this.tipo = tipo;
@@ -22,16 +23,9 @@ public class Combustible {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
     public double getPrecio() {
         return precio;
     }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
+    
     
 }
