@@ -57,7 +57,7 @@ public class Viaje {
     public double CalculoDistancia(){
         if( this.distancia == 0){
         //if( this.getDestino().getRuta() == this.getOrigen().getRuta())
-            return this.destino.getKm() - this.origen.getKm();
+            return Math.abs(this.destino.getKm() - this.origen.getKm());
         } else {
             return this.distancia;
         }
@@ -65,7 +65,13 @@ public class Viaje {
 
     public double CalculoPeajes(){
         //CONSULTAR EL VALOR DE CADA PEAJE
-        return this.cant_peajes * 100;
+        if (this.vehiculo instanceof Camion) {
+            return this.cant_peajes*150;
+            
+        }else{
+          return this.cant_peajes*100;
+        }
+
     }
     
     public double CalculoCombustible(){
@@ -73,6 +79,6 @@ public class Viaje {
     }
     
     public double CalculoTotal(){
-        return this.CalculoDistancia() + this.CalculoPeajes();
+        return this.CalculoCombustible() + this.CalculoPeajes();
     }
 }

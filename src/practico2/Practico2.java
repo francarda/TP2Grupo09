@@ -84,8 +84,7 @@ public class Practico2 {
                     System.out.println("Ingrese el vehiculo para el viaje");
                     vehiculo = vehiculos.get(0);
                     System.out.println("Ingrese la cantidad de peajes");
-                    cant_peajes = sc.nextInt();
-                    
+                    cant_peajes = sc.nextInt();            
                     Viaje viaje = new Viaje(corigen, cdestino, distancia, cant_peajes, vehiculo);
                     System.out.println(viaje.CalculoCombustible());
                     System.out.println(viaje.CalculoTotal());
