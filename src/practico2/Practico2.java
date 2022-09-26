@@ -23,7 +23,7 @@ public class Practico2 {
         List<Combustible> combustibles = new ArrayList<> ();
         List<Vehiculo> vehiculos = new ArrayList<> ();
         Scanner sc = new Scanner(System.in);
-        Ciudad cd, corigen, cdestino;
+        Ciudad corigen, cdestino;
         Vehiculo v, vehiculo;
         Combustible cb;
         int distancia = 0;
@@ -47,7 +47,12 @@ public class Practico2 {
                     ciudades.add(new Ciudad("Cordoba", 500, 9));
                     ciudades.add(new Ciudad("San Luis", 800, 7));
                     ciudades.add(new Ciudad("Mendoza", 1200, 7));
+                    System.out.println("<-------------------------------------->");
                     System.out.println("Ciudades creadas");
+                    ciudades.forEach((c) -> {
+                        System.out.println(ciudades.indexOf(c) + " : " + c.getNombre() + " Ruta " +c.getRuta() );
+                    });
+                    System.out.println("<-------------------------------------->");
                     break;
                 case 2:
                     //System.out.println("Ingrese el tipo y precio del combustible");
@@ -56,7 +61,12 @@ public class Practico2 {
                     combustibles.add(cb);
                     cb = new Combustible("Gasoil", 200);
                     combustibles.add(cb);
+                    System.out.println("<-------------------------------------->");
                     System.out.println("Combustibles creados");
+                    combustibles.forEach((cmb) -> {
+                        System.out.println(combustibles.indexOf(cmb) + " : " + cmb.getTipo()+ " Precio $" +cmb.getPrecio() );
+                    });
+                    System.out.println("<-------------------------------------->");
                     break;
                 case 3:
                     //System.out.println("Ingrese la marca y patente del vehiculo a continuacion seleccione el tipo de combustible");
@@ -67,35 +77,48 @@ public class Practico2 {
                     vehiculos.add(v);
                     v = new Camioneta("Scania", "BV367RT", combustibles.get(1));
                     vehiculos.add(v);
+                    System.out.println("<-------------------------------------->");
                     System.out.println("Autos creados");
+                    vehiculos.forEach((ve) -> {
+                        System.out.println(vehiculos.indexOf(ve) + " : " + ve.getMarca()+ " Patente " +ve.getPatente());
+                    });
+                    System.out.println("<-------------------------------------->");
                     break;
                 case 4:
+                    System.out.println("<-------------------------------------->");
                     System.out.println("Generar un nuevo viaje");
                     System.out.println("Seleccione una ciudad de origen");
-                    corigen = ciudades.get(0);
+                    ciudades.forEach((c) -> {
+                        System.out.println(ciudades.indexOf(c) + " : " + c.getNombre() + " Ruta " +c.getRuta() );
+                    });
+                    corigen = ciudades.get(sc.nextInt());
                     System.out.println("Se seleccionó "+corigen.getNombre());
                     System.out.println("Seleccione una ciudad de destino");
-                    cdestino = ciudades.get(1);
+                    ciudades.forEach((c) -> {
+                        System.out.println(ciudades.indexOf(c) + " : " + c.getNombre() + " Ruta " +c.getRuta() );
+                    });
+                    cdestino = ciudades.get(sc.nextInt());
                     System.out.println("Se seleccionó "+cdestino.getNombre());
                     if( corigen.getRuta() != cdestino.getRuta()){
                         System.out.println("Ingrese la distancia");
                         distancia = sc.nextInt();
                     }
                     System.out.println("Ingrese el vehiculo para el viaje");
-                    vehiculo = vehiculos.get(0);
+                    vehiculos.forEach((ve) -> {
+                        System.out.println(vehiculos.indexOf(ve) + " : " + ve.getMarca()+ " Patente " +ve.getPatente());
+                    });
+                    vehiculo = vehiculos.get(sc.nextInt());
                     System.out.println("Ingrese la cantidad de peajes");
                     cant_peajes = sc.nextInt();            
                     Viaje viaje = new Viaje(corigen, cdestino, distancia, cant_peajes, vehiculo);
                     System.out.println(viaje.CalculoCombustible());
                     System.out.println(viaje.CalculoTotal());
+                    System.out.println("<-------------------------------------->");
                     break;
                 case 0:
                     exit = true;
                     break;
-                    
             }
-
         } while (!exit);
     } 
-    
 }
