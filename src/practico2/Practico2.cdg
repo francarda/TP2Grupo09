@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Lab1_TP2_Viajes">
+  <ClassDiagramComponents>
+    <Class name="Viaje" package="" visibility="public" xPosition="24.0" yPosition="24.0">
+      <Fields>
+        <Field name="origen" type="Ciudad" visibility="private"/>
+        <Field name="destino" type="Ciudad" visibility="private"/>
+        <Field name="distancia" type="double" visibility="private"/>
+        <Field name="vehiculo" type="Vehiculo" visibility="private"/>
+        <Field name="peaje" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Vehiculo" name="vehiculo"/>
+          <Argument type="Ciudad" name="origen"/>
+          <Argument type="Ciudad" name="destino"/>
+          <Argument type="int" name="peaje"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Vehiculo" name="vehiculo"/>
+          <Argument type="Ciudad" name="origen"/>
+          <Argument type="Ciudad" name="destino"/>
+          <Argument type="int" name="distancia"/>
+          <Argument type="int" name="peaje"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calculoDistancia" returnType="double" visibility="public"/>
+        <Method name="CalculoPeajes" returnType="double" visibility="public"/>
+        <Method name="CalculoCombustible" returnType="double" visibility="public"/>
+        <Method name="CalculoTotal" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Ciudad" package="" visibility="public" xPosition="176.0" yPosition="410.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="km" type="double" visibility="private"/>
+        <Field name="ruta" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Vehiculo" package="" visibility="public" isAbstract="true" xPosition="574.0" yPosition="24.0">
+      <Fields>
+        <Field name="patente" type="String" visibility="private"/>
+        <Field name="marca" type="String" visibility="private"/>
+        <Field name="combustible" type="Combustible" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularCostoDeCombustible" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Auto" package="" visibility="public" xPosition="416.0" yPosition="374.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Camion" package="" visibility="public" xPosition="854.0" yPosition="374.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Camioneta" package="" visibility="public" xPosition="631.0" yPosition="374.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Combustible" package="" visibility="public" xPosition="870.0" yPosition="24.0">
+      <Fields>
+        <Field name="combustible" type="String" visibility="private"/>
+        <Field name="precio" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Camion" target="Vehiculo"/>
+    <IsRelation name="is" source="Auto" target="Vehiculo"/>
+    <HasRelation name="tiene" source="Vehiculo" target="Combustible" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Camioneta" target="Vehiculo"/>
+    <HasRelation name="tiene" source="Viaje" target="Vehiculo" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tiene" source="Viaje" target="Ciudad" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
