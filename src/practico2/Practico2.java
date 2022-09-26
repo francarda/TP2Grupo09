@@ -43,14 +43,19 @@ public class Practico2 {
                 case 1:
                     //System.out.println("Ingrese el nombre, km y ruta de la ciudad");
                     //cd = new Ciudad(sc.next(), sc.nextDouble(), sc.nextInt());
-                    ciudades.add(new Ciudad("Buenos Aires", 1, 7));
-                    ciudades.add(new Ciudad("Cordoba", 500, 9));
+                    ciudades.add(new Ciudad("Bs As", 1, 7));
                     ciudades.add(new Ciudad("San Luis", 800, 7));
                     ciudades.add(new Ciudad("Mendoza", 1200, 7));
+                    ciudades.add(new Ciudad("Bs As", 1, 9));
+                    ciudades.add(new Ciudad("Rosario", 250, 9));
+                    ciudades.add(new Ciudad("Cordoba", 500, 9));
+                    ciudades.add(new Ciudad("Tucuman", 1200, 9));
+                    ciudades.add(new Ciudad("San Luis", 800, 147));
+                    ciudades.add(new Ciudad("San Juan", 900, 147));
                     System.out.println("<-------------------------------------->");
                     System.out.println("Ciudades creadas");
                     ciudades.forEach((c) -> {
-                        System.out.println(ciudades.indexOf(c) + " : " + c.getNombre() + " Ruta " +c.getRuta() );
+                        System.out.println(ciudades.indexOf(c) + " : " + c.getNombre() + " \tRuta " +c.getRuta() );
                     });
                     System.out.println("<-------------------------------------->");
                     break;
@@ -89,13 +94,13 @@ public class Practico2 {
                     System.out.println("Generar un nuevo viaje");
                     System.out.println("Seleccione una ciudad de origen");
                     ciudades.forEach((c) -> {
-                        System.out.println(ciudades.indexOf(c) + " : " + c.getNombre() + " Ruta " +c.getRuta() );
+                        System.out.println(ciudades.indexOf(c) + " : " + c.getNombre() + " \tRuta " +c.getRuta() );
                     });
                     corigen = ciudades.get(sc.nextInt());
                     System.out.println("Se seleccionó "+corigen.getNombre());
                     System.out.println("Seleccione una ciudad de destino");
                     ciudades.forEach((c) -> {
-                        System.out.println(ciudades.indexOf(c) + " : " + c.getNombre() + " Ruta " +c.getRuta() );
+                        System.out.println(ciudades.indexOf(c) + " : " + c.getNombre() + " \tRuta " +c.getRuta() );
                     });
                     cdestino = ciudades.get(sc.nextInt());
                     System.out.println("Se seleccionó "+cdestino.getNombre());
